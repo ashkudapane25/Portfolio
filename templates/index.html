@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @import url("https://fonts.googleapis.com/ass2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/*universal selector*/
+*{
+    outline:none;
+    box-sizing:border-box;
+}
+
+/* custom scrolbar*/
+::-webkit-scrollbar{
+    width:10px;
+}
+ 
+::webkit-scrollbar-track {
+    background:#;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #888;  
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#555;
+}
+/* Styles for background */
+body::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100vh;
+    background:liner-gradient(
+        180deg,rgba(255,255,255,0.72) 0%,rgba(255,255,255,0.45) 100%);
+        -webkit-backdrop-filter: saturate(3);
+        backdrop-filter: saturate(3);
+}
+body{
+   font-family: "Poppins", sans-serif;
+   background-image: url(https://e0.pxfuel.com/wallpapers/475/184/desktop-wallpaper-portfolio-background-portfolio-background-portfolio-and-career-portfolio.jpg);
+   background-size: cover;
+   background-position: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 2em;
+   margin: 0;
+   width: 100%;
+   height: 100vh;
+}
+
+@media screen and (max-width:480px) {
+    body{
+        padding:0.8em;
+    }
+}
+
+main{
+    background-color: rgb(255 255 255 / 31%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1250px;
+    width: 100%;
+    border: radius 5px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-weight: 500;
+    padding: 1rem 1rem 2rem 1rem;
+    overflow:auto;
+}
+
+main::-webkit-scrollbar{
+    display:none;
+}
+
+.NavigationSection{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    border-bottom: 1.5px solid rgb(255 255 255 / 35%);
+}
+ 
+.NavigationSection > h1, .NavigationSection > NavMenus{
+    margin:10px; 
+}
+
+.NavMenus > a{
+   padding: 5px 10px;
+   margin-left: 10px;
+   text-decoration: none;
+   color: black;
+   display: inline-block;
+}
+
+.NavMenus > a:hover{
+    transition: ease-in-out 400ms;
+    background:white;
+}
+
+@media only screen and (max-width: 760px){
+    .NavMenus{
+        display:none;
+    }
+}
+
+.herosection{
+    margin:2rem 0;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.portfolioImage{
+    width:350px;
+    height:350px;
+    object-fit:cover;
+    object-position:center;
+    border: radius 5px;
+}
+
+.HeroSectionDetails > h1{
+    font-size: 50px;
+    margin: 10px;
+    text-align: center;
+}
+.HeroSectionDetails > h3{
+    font-size: 25px;
+    margin: 10px;
+    text-align: center;
+}
+
+.aboutMe{
+    margin:1rem;
+    text-align: center;
+}
+
+.skillsAndprojects{
+  margin:1rem;
+  display:grid;
+  grid-template-columns: [one] 50% [two] 50%;
+  grid-gap:10px;
+  align-items:center;
+  justify-content: center;
+  width:calc(100% - 2rem);
+}
+
+@media only screen and (max-width:720px){
+    .skillsAndprojects{
+        grid-template-columns: [one] 100%;
+        grid-template-rows: [one] [two];
+    }
+}
+.skillsAndprojects > .skills, .skillsAndprojects > .projects{
+    min-width: 250px;
+    margin:1rem;
+    min-height:250px;
+}
+
+.skillsAndprojects > .skills, .skillsAndprojects > .projects{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(255 255 255 / 31%);
+    border: 1px solid rgb(255 255 255 / 31%);
+    padding:1rem;
+    margin-bottom: 2rem;
+}
+
+.CardHeading{
+    display:block;
+    width:90%;
+    margin:0;
+    margin-bottom:1rem;
+}
+ .skillsAndprojects > .skills > img{
+    width:60px;
+    height:60px;
+    margin-bottom:15px;
+    margin-right:15px;
+ }
+
+ .skillsAndprojects > .skills >img:hover{
+    transition:ease-in 300ms;
+    transform:scale(0.85);
+ }
+
+ .projectContainer{
+    display:flex;
+    width:90%;
+ }
+ .projectContainer > img{
+    width: 60px;
+    height: 60px;
+    padding-right:10px;
+ }
+
+ .projectContainer > .projectDescription > p{
+    margin:0;
+    margin-bottom: 1rem;
+ }
+
+ .contactForm{
+    margin:2rem;
+    width:calc(100% - 4rem);
+    background-color:rgb(255 255 255 / 31%);
+    border:1px solid rgb(255 255 255 / 31%);
+    border-radius:5px;
+    padding:1rem;
+ }
+
+ .contactForm > .formGroup{
+    margin-bottom:1rem;
+ }
+
+ .formGroup > input , .formGroup > textarea{
+    width:100%;
+    padding:5px 10px;
+    margin-top:5px;
+    font-weight:600;
+ }
+ .submitButton{
+    padding:10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+ }
+
+ @media only screen and (max-width:460px){
+    .portfolioImage{
+        width:250px;
+        height:250px;
+    }
+    .HeroSectionDetails > h1{
+        font-size:30px;
+        margin-top:1.5rem;
+        margin-bottom:0rem;
+    }
+    .HeroSectionDetails > h1{
+        font-size:20px;
+        margin:0;
+        font-weight:400;
+    }
+ }
+    </style>
+</head>
+<body>
+    <main class="Main">
+        <nav class="NavigationSection">
+        <h1>Ash K Portfolio</h1>
+        <div class="NavMenus">
+            <a href="#aboutMe">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contactForm">Let's Connect!</a>       
+         </div>
+        </nav>
+         <section class="herosection">
+            <a href="{% url "login"%}">
+                <img class="portfolioImage" src="{% static "images/img1.png"%}" alt="profile">
+            </a>
+            
+        <div class="HeroSectionDetails">
+          <h1>Ash K</h1>
+          <h3>Django Developer</h3>
+        </div>
+    </section>
+    <section class="aboutMe" id="aboutMe">
+        <h1>What I Do...</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Cum iure, porro fugiat delectus 
+            rerum et, minus explicabo amet voluptas, repudiandae
+             ratione non voluptate. Delectus harum autem tempora distinctio
+              veniam tenetur.
+        </p>
+
+    </section>
+    <section class="skillsAndprojects">
+        <div class="skills" id="skills">
+            <h1 class="CardHeading">Skills</h1>
+            <img src="{% static "images/html.svg" %}" title="html">
+            <img src="{% static "images/css.svg" %}" title="css">
+            <img src="{% static "images/python.svg"%}" title="python">
+            <img src="{% static "images/django.svg"%}" title="django">
+            <img src="{% static "images/mongodb.svg"%}" title="mongodb" >
+            <img src="{% static "images/bootstrap.svg" %}" title="bootstrap">
+        </div>
+        <div class="projects" id="projects">
+            <h1 class="cardHeading">Projects</h1>
+            <div class="projectContainer">
+                    <img src="{% static "images/django.svg" %}" alt="django">
+                <div class="projectDescription">
+                    <h4>Project Name</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur 
+                        adipisicing elit. Maxime reprehenderit 
+                        explicabo quia unde error id laudantium,
+                         hic maiores doloribus amet mollitia nobis
+                          praesentium accusamus, reiciendis omnis.
+                           Ullam, voluptatum natus. Culpa.</p>
+                </div>
+            </div>
+            <div class="projectContainer">
+                    <img src="{% static "images/python.svg" %}" alt="python">
+                <div class="projectDescription">
+                    <h4>Project Name</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, iste? 
+                        Iusto dolor illo sint minima sapiente architecto dicta magni illum excepturi 
+                        nemo in eaque sequi suscipit, repellendus quos similique quaerat.</p>
+                </div>   
+            </div>
+        </div>
+    </section>
+    <section class="contactForm" id="contactForm">
+            {% for x in messages %}
+            <center>
+                <h5> 
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong style="color:green;">{{x}}</strong>
+                        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </h5>
+            </center>
+            {% endfor %}
+            <h1 class="CardHeading">Let's Connect!</h1>
+            <form method="POST" action="{% url 'Home' %}">
+                {% csrf_token %}
+                <div class="formGroup">
+                    <label for="name">Enter Full Name</label><br/>
+                    <input type="text" id="name" name="name" placeholder="Full Name">
+                </div>
+                <div class="formGroup">
+                    <label for="email">Email</label><br/>
+                    <input type="text" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="formGroup">
+                    <label for="message">Message</label><br/>
+                    <textarea placeholder="Send some message!" id="message" name="message" rows="4" cols="100"></textarea>
+                </div>
+                <button class="submitButton">Connect</button>
+            </form>
+    </section>
+    </main>
+</body>
+</html>     
